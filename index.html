@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Move Up · Igreja Batista Betel</title>
+<meta name="description" content="Move Up — o grupo de adolescentes da Igreja Batista Betel.">
+<style>
+  /* ====== AJUSTE AQUI ======
+     WHATSAPP: número no formato 55 + DDD + número, só dígitos.  */
+  :root{
+    --indigo-900:#12024f; --indigo-800:#1a0369; --indigo-700:#241470;
+    --lime:#7ffb00; --branco:#fff;
+    --fonte:"Segoe UI",system-ui,-apple-system,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--fonte);background:var(--indigo-800);color:var(--branco);overflow-x:hidden}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+  a{color:inherit}
+
+  /* ---------- topo ---------- */
+  header{position:sticky;top:0;z-index:40;background:rgba(12,2,60,.86);backdrop-filter:blur(10px);
+    border-bottom:1px solid rgba(255,255,255,.10)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:76px}
+  .marca{display:flex;align-items:center;gap:14px;font-weight:800;font-size:26px;letter-spacing:2px}
+  .marca img{height:40px;width:auto;display:block}
+  .marca span{color:var(--lime)}
+  .nav-links{display:flex;gap:28px;font-size:16px;opacity:.85}
+  .nav-links a{text-decoration:none}
+  .nav-links a:hover{color:var(--lime)}
+  .btn-carrinho{background:var(--lime);color:#0d0146;border:none;font-weight:700;font-size:15px;
+    padding:12px 20px;border-radius:999px;cursor:pointer;letter-spacing:1px}
+  @media(max-width:760px){.nav-links{display:none}}
+
+  /* ---------- hero ---------- */
+  .hero{position:relative;padding:120px 0 110px;overflow:hidden}
+  .hero::before{content:"";position:absolute;inset:0;
+    background:radial-gradient(80% 90% at 75% 20%,#3d2d8f 0%,rgba(61,45,143,0) 60%),
+               linear-gradient(120deg,#12024f 0%,#1e0d6d 55%,#2a1b7c 100%)}
+  .hero::after{content:"";position:absolute;inset:0;opacity:.06;
+    background-image:repeating-linear-gradient(to right,#fff 0 1px,transparent 1px 90px),
+                     repeating-linear-gradient(to bottom,#fff 0 1px,transparent 1px 90px)}
+  .hero .wrap{position:relative;z-index:2}
+  .tag{display:inline-flex;align-items:center;gap:12px;font-size:14px;letter-spacing:5px;
+    text-transform:uppercase;color:var(--lime);font-weight:700;margin-bottom:26px}
+  .tag::before{content:"";width:48px;height:4px;background:var(--lime)}
+  h1{font-size:clamp(48px,9vw,104px);line-height:.98;letter-spacing:-1px;font-weight:800}
+  h1 em{font-style:normal;color:var(--lime)}
+  .hero p{margin-top:26px;font-size:clamp(18px,2.4vw,26px);max-width:640px;opacity:.88;line-height:1.5}
+  .acoes{margin-top:44px;display:flex;gap:16px;flex-wrap:wrap}
+  .btn{display:inline-block;text-decoration:none;font-weight:700;font-size:17px;
+    padding:18px 34px;border-radius:999px;letter-spacing:.5px}
+  .btn-lime{background:var(--lime);color:#0d0146}
+  .btn-vazio{border:2px solid rgba(255,255,255,.4)}
+  .btn:hover{transform:translateY(-2px)}
+
+  /* ---------- seções ---------- */
+  section{padding:96px 0}
+  .titulo{font-size:clamp(34px,5vw,60px);font-weight:800;letter-spacing:-.5px;margin-bottom:18px}
+  .titulo em{font-style:normal;color:var(--lime)}
+  .sub{font-size:19px;opacity:.8;max-width:680px;line-height:1.6}
+
+  .grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:28px;margin-top:52px}
+  .bloco{background:rgba(255,255,255,.05);border-left:5px solid var(--lime);border-radius:14px;padding:32px}
+  .bloco h3{font-size:24px;margin-bottom:12px}
+  .bloco p{opacity:.82;line-height:1.55}
+
+  .quando{background:var(--indigo-900)}
+  .horarios{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;margin-top:44px}
+  .horario{border:2px solid rgba(255,255,255,.14);border-radius:16px;padding:30px;text-align:center}
+  .horario .dia{font-size:15px;letter-spacing:4px;text-transform:uppercase;color:var(--lime);font-weight:700}
+  .horario .hora{font-size:44px;font-weight:800;margin:10px 0 6px}
+  .horario .local{opacity:.7;font-size:15px}
+
+  /* ---------- loja ---------- */
+  .loja{background:linear-gradient(180deg,var(--indigo-800),var(--indigo-900))}
+  .produtos{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:28px;margin-top:52px}
+  .produto{background:rgba(255,255,255,.06);border-radius:18px;overflow:hidden;display:flex;flex-direction:column}
+  .produto .capa{height:240px;display:flex;align-items:center;justify-content:center;position:relative}
+  .produto .capa img{width:44%;max-width:150px;height:auto;filter:drop-shadow(0 10px 24px rgba(0,0,0,.35))}
+  .produto:nth-child(1) .capa{background:linear-gradient(135deg,#3a2a86,#5b3fd6)}
+  .produto:nth-child(2) .capa{background:linear-gradient(135deg,#12024f,#3d2d8f)}
+  .produto:nth-child(3) .capa{background:linear-gradient(135deg,#4b1d8f,#a03bd6)}
+  .produto .corpo{padding:24px;display:flex;flex-direction:column;gap:10px;flex:1}
+  .produto h3{font-size:22px}
+  .produto .desc{font-size:15px;opacity:.75;line-height:1.5;flex:1}
+  .preco{font-size:30px;font-weight:800;color:var(--lime)}
+  .add{background:var(--lime);color:#0d0146;border:none;font-weight:700;font-size:16px;
+    padding:14px;border-radius:999px;cursor:pointer;letter-spacing:.5px}
+  .add:active{transform:scale(.97)}
+
+  /* ---------- carrinho ---------- */
+  .overlay{position:fixed;inset:0;background:rgba(4,0,26,.6);opacity:0;pointer-events:none;
+    transition:opacity .25s;z-index:50}
+  .overlay.on{opacity:1;pointer-events:auto}
+  .carrinho{position:fixed;top:0;right:0;height:100%;width:min(430px,100%);z-index:60;
+    background:#150464;border-left:1px solid rgba(255,255,255,.12);
+    transform:translateX(100%);transition:transform .28s;display:flex;flex-direction:column}
+  .carrinho.on{transform:translateX(0)}
+  .carrinho header{position:static;background:none;border:none;padding:26px 26px 16px;
+    display:flex;justify-content:space-between;align-items:center}
+  .carrinho h2{font-size:24px}
+  .fechar{background:none;border:none;color:#fff;font-size:30px;cursor:pointer;line-height:1}
+  .itens{flex:1;overflow-y:auto;padding:0 26px}
+  .item{display:flex;gap:14px;align-items:center;padding:18px 0;border-bottom:1px solid rgba(255,255,255,.10)}
+  .item .nome{flex:1;font-size:16px}
+  .item .valor{font-size:14px;opacity:.7}
+  .qtd{display:flex;align-items:center;gap:10px}
+  .qtd button{width:32px;height:32px;border-radius:50%;border:1px solid rgba(255,255,255,.3);
+    background:none;color:#fff;font-size:18px;cursor:pointer}
+  .vazio{opacity:.6;padding:40px 0;text-align:center}
+  .rodape-carrinho{padding:24px 26px 30px;border-top:1px solid rgba(255,255,255,.12)}
+  .total{display:flex;justify-content:space-between;font-size:22px;font-weight:800;margin-bottom:18px}
+  .total span:last-child{color:var(--lime)}
+  .finalizar{display:block;width:100%;text-align:center;text-decoration:none;background:var(--lime);
+    color:#0d0146;font-weight:800;font-size:17px;padding:18px;border-radius:999px;border:none;cursor:pointer}
+
+  /* ---------- rodapé ---------- */
+  footer{background:#0c0140;padding:60px 0 40px;text-align:center}
+  footer .marca{font-size:30px;margin-bottom:14px}
+  footer p{opacity:.65;font-size:15px;line-height:1.7}
+  footer a{color:var(--lime);text-decoration:none;font-weight:600}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <div class="marca"><img src="img/logo-up-branco.png" alt="">MOVE <span>UP</span></div>
+    <nav class="nav-links">
+      <a href="#sobre">O grupo</a>
+      <a href="#quando">Encontros</a>
+      <a href="#loja">Loja</a>
+    </nav>
+    <button class="btn-carrinho" onclick="abrirCarrinho()">Carrinho (<span id="contador">0</span>)</button>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="tag">Igreja Batista Betel</div>
+    <h1>Move <em>Up</em><br>é lugar de<br>adolescente.</h1>
+    <p>Um grupo pra crescer de verdade: fé, amizade e conversa sem enrolação sobre a vida
+       que a gente vive de segunda a domingo.</p>
+    <div class="acoes">
+      <a class="btn btn-lime" href="#quando">Quero participar</a>
+      <a class="btn btn-vazio" href="#loja">Ver a loja</a>
+    </div>
+  </div>
+</div>
+
+<section id="sobre">
+  <div class="wrap">
+    <h2 class="titulo">O que é o <em>Move Up</em></h2>
+    <p class="sub">Não é culto de adulto com música mais alta. É um espaço feito pra quem tem
+      de 12 a 17 anos, com gente que fala a mesma língua.</p>
+    <div class="grid3">
+      <div class="bloco">
+        <h3>Fé sem fingimento</h3>
+        <p>Dá pra ter dúvida, dá pra perguntar, dá pra não saber. A gente estuda a Bíblia
+           de um jeito que dá pra aplicar na segunda-feira.</p>
+      </div>
+      <div class="bloco">
+        <h3>Amizade de verdade</h3>
+        <p>Gente que lembra do seu nome, que chama pra sair, que percebe quando você some.
+           Comunidade que aparece.</p>
+      </div>
+      <div class="bloco">
+        <h3>Coisa pra fazer</h3>
+        <p>Jogos, música, dinâmica, viagem, projeto social. A gente aprende fazendo,
+           não só ouvindo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="quando" class="quando">
+  <div class="wrap">
+    <h2 class="titulo">Quando <em>acontece</em></h2>
+    <p class="sub">Chega junto. Não precisa avisar, não precisa levar nada, não precisa
+      saber de nada antes.</p>
+    <div class="horarios">
+      <div class="horario">
+        <div class="dia">Sábado</div>
+        <div class="hora">19h30</div>
+        <div class="local">Encontro semanal · Templo</div>
+      </div>
+      <div class="horario">
+        <div class="dia">Domingo</div>
+        <div class="hora">09h00</div>
+        <div class="local">Escola bíblica · Sala 3</div>
+      </div>
+      <div class="horario">
+        <div class="dia">Último sábado</div>
+        <div class="hora">Move Lab</div>
+        <div class="local">Edição especial do mês</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="loja" class="loja">
+  <div class="wrap">
+    <h2 class="titulo">Loja do <em>Move Up</em></h2>
+    <p class="sub">Camiseta, boné e bolsa com o logo do Move Up. Escolheu e clicou, o pedido
+      cai direto no WhatsApp do Luis. A retirada é no próprio encontro.</p>
+
+    <div class="produtos" id="produtos"></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="marca" style="justify-content:center"><img src="img/logo-up-branco.png" alt="">MOVE <span style="color:var(--lime)">UP</span></div>
+    <p>
+      Igreja Batista Betel<br>
+      Pedidos da loja com <strong>Luis Albuquerque</strong> ·
+      <a href="https://wa.me/5515991552064" target="_blank" rel="noopener">(15) 99155-2064</a>
+    </p>
+  </div>
+</footer>
+
+<div class="overlay" id="overlay" onclick="fecharCarrinho()"></div>
+
+<aside class="carrinho" id="carrinho">
+  <header>
+    <h2>Seu carrinho</h2>
+    <button class="fechar" onclick="fecharCarrinho()">&times;</button>
+  </header>
+  <div class="itens" id="itens"></div>
+  <div class="rodape-carrinho">
+    <div class="total"><span>Total</span><span id="total">R$ 0,00</span></div>
+    <button class="finalizar" onclick="finalizar()">Finalizar no WhatsApp</button>
+  </div>
+</aside>
+
+<script>
+  // ====== AJUSTE AQUI ======
+  // WhatsApp que recebe os pedidos (55 + DDD + número, só dígitos)
+  const WHATSAPP = "5515991552064";      // Luis Albuquerque
+  const RESPONSAVEL = "Luis";
+
+  // Preços provisórios — confirmar com o Luis antes da palestra
+  const PRODUTOS = [
+    { id:"camiseta", nome:"Camiseta Move Up", preco:59.90, desc:"Algodão, logo estampado em silk. Do P ao GG." },
+    { id:"bone",     nome:"Boné Move Up",     preco:49.90, desc:"Aba curva, logo bordado na frente. Tamanho único." },
+    { id:"bolsa",    nome:"Bolsa Move Up",    preco:39.90, desc:"Tote de lona com o logo. Cabe caderno, Bíblia e o resto." },
+  ];
+
+  let carrinho = JSON.parse(localStorage.getItem("moveup_carrinho") || "{}");
+
+  const real = v => v.toLocaleString("pt-BR", { style:"currency", currency:"BRL" });
+
+  function montarProdutos(){
+    document.getElementById("produtos").innerHTML = PRODUTOS.map(p => `
+      <article class="produto">
+        <div class="capa"><img src="img/logo-up-branco.png" alt=""></div>
+        <div class="corpo">
+          <h3>${p.nome}</h3>
+          <div class="desc">${p.desc}</div>
+          <div class="preco">${real(p.preco)}</div>
+          <button class="add" onclick="adicionar('${p.id}')">Adicionar ao carrinho</button>
+        </div>
+      </article>`).join("");
+  }
+
+  function salvar(){
+    localStorage.setItem("moveup_carrinho", JSON.stringify(carrinho));
+    render();
+  }
+
+  function adicionar(id){
+    carrinho[id] = (carrinho[id] || 0) + 1;
+    salvar();
+    abrirCarrinho();
+  }
+
+  function mudar(id, delta){
+    carrinho[id] = (carrinho[id] || 0) + delta;
+    if (carrinho[id] <= 0) delete carrinho[id];
+    salvar();
+  }
+
+  function itens(){
+    // ignora item salvo de um produto que nao existe mais (catalogo mudou)
+    return Object.entries(carrinho)
+      .map(([id, qtd]) => { const p = PRODUTOS.find(p => p.id === id); return p ? { ...p, qtd } : null; })
+      .filter(Boolean);
+  }
+
+  function total(){
+    return itens().reduce((s, i) => s + i.preco * i.qtd, 0);
+  }
+
+  function render(){
+    const lista = itens();
+    document.getElementById("contador").textContent = lista.reduce((s,i) => s + i.qtd, 0);
+    document.getElementById("total").textContent = real(total());
+    document.getElementById("itens").innerHTML = lista.length ? lista.map(i => `
+      <div class="item">
+        <div>
+          <div class="nome">${i.nome}</div>
+          <div class="valor">${real(i.preco)}</div>
+        </div>
+        <div class="qtd">
+          <button onclick="mudar('${i.id}',-1)">-</button>
+          <span>${i.qtd}</span>
+          <button onclick="mudar('${i.id}',1)">+</button>
+        </div>
+      </div>`).join("") : `<div class="vazio">Seu carrinho está vazio.</div>`;
+  }
+
+  function abrirCarrinho(){
+    document.getElementById("carrinho").classList.add("on");
+    document.getElementById("overlay").classList.add("on");
+  }
+  function fecharCarrinho(){
+    document.getElementById("carrinho").classList.remove("on");
+    document.getElementById("overlay").classList.remove("on");
+  }
+
+  function finalizar(){
+    const lista = itens();
+    if (!lista.length) { alert("Seu carrinho está vazio."); return; }
+    const linhas = lista.map(i => `• ${i.qtd}x ${i.nome} — ${real(i.preco * i.qtd)}`).join("\n");
+    const msg = `Oi, ${RESPONSAVEL}! Quero fazer um pedido na loja do Move Up:\n\n${linhas}\n\nTotal: ${real(total())}`;
+    window.open(`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`, "_blank");
+  }
+
+  montarProdutos();
+  render();
+</script>
+
+</body>
+</html>
