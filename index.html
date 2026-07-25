@@ -5,135 +5,153 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Move Up · Igreja Batista Betel</title>
 <meta name="description" content="Move Up, o grupo de adolescentes da Igreja Batista Betel.">
-<link rel="icon" href="img/logo-up-branco.png">
+<link rel="icon" href="img/logo-up-indigo.png">
 <style>
-  /* ====== AJUSTE AQUI ======
-     WHATSAPP: número no formato 55 + DDD + número, só dígitos.  */
+  /* ============================================================
+     Identidade Move Up — cores tiradas do próprio logo:
+       azul  #1D0B6A   roxo  #AF25B1   branco #FFFFFF
+     ============================================================ */
   :root{
-    --indigo-900:#12024f; --indigo-800:#1a0369; --indigo-700:#241470;
-    --lime:#7ffb00; --branco:#fff;
+    --azul:#1d0b6a; --azul-fundo:#150750; --azul-claro:#2c169b;
+    --roxo:#af25b1; --roxo-claro:#c93bcb; --roxo-fraco:#f7e9f8;
+    --branco:#fff; --cinza:#f4f3fa; --texto:#2a2350;
     --fonte:"Segoe UI",system-ui,-apple-system,sans-serif;
   }
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
-  body{font-family:var(--fonte);background:var(--indigo-800);color:var(--branco);overflow-x:hidden}
-  .wrap{max-width:1200px;margin:0 auto;padding:0 24px}
-  a{color:inherit}
+  body{font-family:var(--fonte);background:var(--branco);color:var(--texto);overflow-x:hidden}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 24px}
 
   /* ---------- topo ---------- */
-  header{position:sticky;top:0;z-index:40;background:rgba(12,2,60,.86);backdrop-filter:blur(10px);
-    border-bottom:1px solid rgba(255,255,255,.10)}
-  .nav{display:flex;align-items:center;justify-content:space-between;height:76px}
-  .marca{display:flex;align-items:center;gap:14px;font-weight:800;font-size:26px;letter-spacing:2px}
-  .marca img{height:40px;width:auto;display:block}
-  .marca span{color:var(--lime)}
-  /* no celular o nome sai pra nao brigar com o botao do carrinho */
-  @media(max-width:560px){
-    .marca-txt{display:none}
-    .btn-carrinho{padding:12px 18px;font-size:14px}
-  }
-  .nav-links{display:flex;gap:28px;font-size:16px;opacity:.85}
-  .nav-links a{text-decoration:none}
-  .nav-links a:hover{color:var(--lime)}
-  .btn-carrinho{background:var(--lime);color:#0d0146;border:none;font-weight:700;font-size:15px;
-    padding:12px 20px;border-radius:999px;cursor:pointer;letter-spacing:1px}
+  header{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.94);
+    backdrop-filter:blur(10px);border-bottom:1px solid #e7e4f2}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:78px}
+  .marca{display:flex;align-items:center;gap:13px;font-weight:800;font-size:25px;
+    letter-spacing:1px;color:var(--azul)}
+  .marca img{height:38px;width:auto;display:block}
+  .marca .up{color:var(--roxo)}
+  .nav-links{display:flex;gap:30px;font-size:16px;font-weight:600}
+  .nav-links a{text-decoration:none;color:var(--azul);opacity:.75}
+  .nav-links a:hover{opacity:1;color:var(--roxo)}
+  .btn-carrinho{background:var(--roxo);color:var(--branco);border:none;font-weight:700;
+    font-size:15px;padding:13px 22px;border-radius:999px;cursor:pointer}
+  .btn-carrinho:hover{background:var(--roxo-claro)}
   @media(max-width:760px){.nav-links{display:none}}
+  @media(max-width:560px){.marca-txt{display:none}.btn-carrinho{padding:12px 18px;font-size:14px}}
 
   /* ---------- hero ---------- */
-  .hero{position:relative;padding:120px 0 110px;overflow:hidden}
+  .hero{position:relative;background:var(--azul);color:var(--branco);
+    padding:118px 0 130px;overflow:hidden}
   .hero::before{content:"";position:absolute;inset:0;
-    background:radial-gradient(80% 90% at 75% 20%,#3d2d8f 0%,rgba(61,45,143,0) 60%),
-               linear-gradient(120deg,#12024f 0%,#1e0d6d 55%,#2a1b7c 100%)}
-  .hero::after{content:"";position:absolute;inset:0;opacity:.06;
-    background-image:repeating-linear-gradient(to right,#fff 0 1px,transparent 1px 90px),
-                     repeating-linear-gradient(to bottom,#fff 0 1px,transparent 1px 90px)}
+    background:radial-gradient(70% 80% at 82% 25%,var(--roxo) 0%,rgba(175,37,177,0) 62%),
+               radial-gradient(60% 70% at 8% 90%,var(--azul-claro) 0%,rgba(44,22,155,0) 60%)}
+  .hero::after{content:"";position:absolute;right:-140px;bottom:-190px;width:620px;height:620px;
+    background:url("img/logo-up-branco.png") no-repeat center/contain;opacity:.07}
   .hero .wrap{position:relative;z-index:2}
-  .tag{display:inline-flex;align-items:center;gap:12px;font-size:14px;letter-spacing:5px;
-    text-transform:uppercase;color:var(--lime);font-weight:700;margin-bottom:26px}
-  .tag::before{content:"";width:48px;height:4px;background:var(--lime)}
-  h1{font-size:clamp(48px,9vw,104px);line-height:.98;letter-spacing:-1px;font-weight:800}
-  h1 em{font-style:normal;color:var(--lime)}
-  .hero p{margin-top:26px;font-size:clamp(18px,2.4vw,26px);max-width:640px;opacity:.88;line-height:1.5}
-  .acoes{margin-top:44px;display:flex;gap:16px;flex-wrap:wrap}
+  .tag{display:inline-flex;align-items:center;gap:12px;font-size:13px;letter-spacing:5px;
+    text-transform:uppercase;font-weight:700;margin-bottom:26px}
+  .tag::before{content:"";width:46px;height:4px;background:var(--roxo);border-radius:2px}
+  h1{font-size:clamp(46px,8.6vw,98px);line-height:1;letter-spacing:-1.5px;font-weight:800}
+  h1 em{font-style:normal;color:var(--roxo-claro)}
+  .hero p{margin-top:26px;font-size:clamp(18px,2.3vw,25px);max-width:620px;opacity:.86;line-height:1.5}
+  .acoes{margin-top:44px;display:flex;gap:14px;flex-wrap:wrap}
   .btn{display:inline-block;text-decoration:none;font-weight:700;font-size:17px;
-    padding:18px 34px;border-radius:999px;letter-spacing:.5px}
-  .btn-lime{background:var(--lime);color:#0d0146}
-  .btn-vazio{border:2px solid rgba(255,255,255,.4)}
-  .btn:hover{transform:translateY(-2px)}
+    padding:18px 34px;border-radius:999px}
+  .btn-roxo{background:var(--roxo);color:var(--branco)}
+  .btn-roxo:hover{background:var(--roxo-claro)}
+  .btn-vazio{border:2px solid rgba(255,255,255,.45);color:var(--branco)}
+  .btn-vazio:hover{border-color:var(--branco)}
 
   /* ---------- seções ---------- */
-  section{padding:96px 0}
-  .titulo{font-size:clamp(34px,5vw,60px);font-weight:800;letter-spacing:-.5px;margin-bottom:18px}
-  .titulo em{font-style:normal;color:var(--lime)}
-  .sub{font-size:19px;opacity:.8;max-width:680px;line-height:1.6}
+  section{padding:100px 0}
+  .titulo{font-size:clamp(32px,4.6vw,54px);font-weight:800;letter-spacing:-.8px;
+    color:var(--azul);margin-bottom:16px}
+  .titulo em{font-style:normal;color:var(--roxo)}
+  .sub{font-size:19px;opacity:.75;max-width:660px;line-height:1.6}
 
-  .grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:28px;margin-top:52px}
-  .bloco{background:rgba(255,255,255,.05);border-left:5px solid var(--lime);border-radius:14px;padding:32px}
-  .bloco h3{font-size:24px;margin-bottom:12px}
-  .bloco p{opacity:.82;line-height:1.55}
+  .grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:26px;margin-top:50px}
+  .bloco{background:var(--cinza);border-radius:18px;padding:34px;border-top:6px solid var(--roxo)}
+  .bloco h3{font-size:23px;color:var(--azul);margin-bottom:12px}
+  .bloco p{line-height:1.6;opacity:.8}
 
-  .quando{background:var(--indigo-900)}
-  .horarios{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;margin-top:44px}
-  .horario{border:2px solid rgba(255,255,255,.14);border-radius:16px;padding:30px;text-align:center}
-  .horario .dia{font-size:15px;letter-spacing:4px;text-transform:uppercase;color:var(--lime);font-weight:700}
-  .horario .hora{font-size:44px;font-weight:800;margin:10px 0 6px}
-  .horario .local{opacity:.7;font-size:15px}
+  /* ---------- encontros ---------- */
+  .quando{background:var(--azul);color:var(--branco)}
+  .quando .titulo{color:var(--branco)}
+  .quando .titulo em{color:var(--roxo-claro)}
+  .quando .sub{opacity:.8}
+  .horarios{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:22px;margin-top:44px}
+  .horario{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);
+    border-radius:18px;padding:32px;text-align:center}
+  .horario .dia{font-size:13px;letter-spacing:4px;text-transform:uppercase;
+    color:var(--roxo-claro);font-weight:800}
+  .horario .hora{font-size:42px;font-weight:800;margin:10px 0 6px}
+  .horario .local{opacity:.72;font-size:15px}
 
   /* ---------- loja ---------- */
-  .loja{background:linear-gradient(180deg,var(--indigo-800),var(--indigo-900))}
-  .produtos{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:28px;margin-top:52px}
-  .produto{background:rgba(255,255,255,.06);border-radius:18px;overflow:hidden;display:flex;flex-direction:column}
-  .produto .capa{height:240px;display:flex;align-items:center;justify-content:center;position:relative}
-  .produto .capa img{width:44%;max-width:150px;height:auto;filter:drop-shadow(0 10px 24px rgba(0,0,0,.35))}
-  .produto:nth-child(1) .capa{background:linear-gradient(135deg,#3a2a86,#5b3fd6)}
-  .produto:nth-child(2) .capa{background:linear-gradient(135deg,#12024f,#3d2d8f)}
-  .produto:nth-child(3) .capa{background:linear-gradient(135deg,#4b1d8f,#a03bd6)}
-  .produto .corpo{padding:24px;display:flex;flex-direction:column;gap:10px;flex:1}
-  .produto h3{font-size:22px}
-  .produto .desc{font-size:15px;opacity:.75;line-height:1.5;flex:1}
-  .preco{font-size:30px;font-weight:800;color:var(--lime)}
-  .add{background:var(--lime);color:#0d0146;border:none;font-weight:700;font-size:16px;
-    padding:14px;border-radius:999px;cursor:pointer;letter-spacing:.5px}
+  .produtos{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:26px;margin-top:50px}
+  .produto{background:var(--branco);border:1px solid #e7e4f2;border-radius:20px;
+    overflow:hidden;display:flex;flex-direction:column;transition:box-shadow .2s,transform .2s}
+  .produto:hover{box-shadow:0 18px 40px rgba(29,11,106,.13);transform:translateY(-3px)}
+  .produto .capa{height:240px;display:flex;align-items:center;justify-content:center}
+  .produto .capa img{width:44%;max-width:145px;height:auto}
+  .produto:nth-child(1) .capa{background:var(--azul)}
+  .produto:nth-child(2) .capa{background:var(--roxo)}
+  .produto:nth-child(3) .capa{background:linear-gradient(135deg,var(--azul),var(--roxo))}
+  .produto .corpo{padding:26px;display:flex;flex-direction:column;gap:10px;flex:1}
+  .produto h3{font-size:22px;color:var(--azul)}
+  .produto .desc{font-size:15px;opacity:.72;line-height:1.5;flex:1}
+  .preco{font-size:29px;font-weight:800;color:var(--roxo)}
+  .add{background:var(--azul);color:var(--branco);border:none;font-weight:700;font-size:16px;
+    padding:15px;border-radius:999px;cursor:pointer}
+  .add:hover{background:var(--azul-claro)}
   .add:active{transform:scale(.97)}
 
   /* ---------- carrinho ---------- */
-  .overlay{position:fixed;inset:0;background:rgba(4,0,26,.6);opacity:0;pointer-events:none;
+  .overlay{position:fixed;inset:0;background:rgba(21,7,80,.55);opacity:0;pointer-events:none;
     transition:opacity .25s;z-index:50}
   .overlay.on{opacity:1;pointer-events:auto}
   .carrinho{position:fixed;top:0;right:0;height:100%;width:min(430px,100%);z-index:60;
-    background:#150464;border-left:1px solid rgba(255,255,255,.12);
+    background:var(--branco);box-shadow:-20px 0 60px rgba(29,11,106,.22);
     transform:translateX(100%);transition:transform .28s;display:flex;flex-direction:column}
   .carrinho.on{transform:translateX(0)}
-  .carrinho header{position:static;background:none;border:none;padding:26px 26px 16px;
+  .carrinho header{position:static;background:var(--azul);border:none;padding:26px;
     display:flex;justify-content:space-between;align-items:center}
-  .carrinho h2{font-size:24px}
-  .fechar{background:none;border:none;color:#fff;font-size:30px;cursor:pointer;line-height:1}
+  .carrinho h2{font-size:23px;color:var(--branco)}
+  .fechar{background:none;border:none;color:var(--branco);font-size:30px;cursor:pointer;line-height:1}
   .itens{flex:1;overflow-y:auto;padding:0 26px}
-  .item{display:flex;gap:14px;align-items:center;padding:18px 0;border-bottom:1px solid rgba(255,255,255,.10)}
-  .item .nome{flex:1;font-size:16px}
-  .item .valor{font-size:14px;opacity:.7}
+  .item{display:flex;gap:14px;align-items:center;justify-content:space-between;
+    padding:20px 0;border-bottom:1px solid #eceaf5}
+  .item .nome{font-size:16px;font-weight:600;color:var(--azul)}
+  .item .valor{font-size:14px;opacity:.65}
   .qtd{display:flex;align-items:center;gap:10px}
-  .qtd button{width:32px;height:32px;border-radius:50%;border:1px solid rgba(255,255,255,.3);
-    background:none;color:#fff;font-size:18px;cursor:pointer}
-  .vazio{opacity:.6;padding:40px 0;text-align:center}
-  .rodape-carrinho{padding:24px 26px 30px;border-top:1px solid rgba(255,255,255,.12)}
-  .total{display:flex;justify-content:space-between;font-size:22px;font-weight:800;margin-bottom:18px}
-  .total span:last-child{color:var(--lime)}
-  .finalizar{display:block;width:100%;text-align:center;text-decoration:none;background:var(--lime);
-    color:#0d0146;font-weight:800;font-size:17px;padding:18px;border-radius:999px;border:none;cursor:pointer}
+  .qtd button{width:32px;height:32px;border-radius:50%;border:1px solid #d8d4ea;
+    background:var(--branco);color:var(--azul);font-size:18px;cursor:pointer;font-weight:700}
+  .qtd button:hover{border-color:var(--roxo);color:var(--roxo)}
+  .vazio{opacity:.55;padding:44px 0;text-align:center}
+  .rodape-carrinho{padding:24px 26px 30px;border-top:1px solid #eceaf5;background:var(--roxo-fraco)}
+  .total{display:flex;justify-content:space-between;font-size:22px;font-weight:800;
+    margin-bottom:18px;color:var(--azul)}
+  .total span:last-child{color:var(--roxo)}
+  .finalizar{display:block;width:100%;background:var(--roxo);color:var(--branco);font-weight:800;
+    font-size:17px;padding:18px;border-radius:999px;border:none;cursor:pointer}
+  .finalizar:hover{background:var(--roxo-claro)}
 
   /* ---------- rodapé ---------- */
-  footer{background:#0c0140;padding:60px 0 40px;text-align:center}
-  footer .marca{font-size:30px;margin-bottom:14px}
-  footer p{opacity:.65;font-size:15px;line-height:1.7}
-  footer a{color:var(--lime);text-decoration:none;font-weight:600}
+  footer{background:var(--azul);color:var(--branco);padding:64px 0 46px;text-align:center}
+  footer .marca{justify-content:center;color:var(--branco);margin-bottom:16px;font-size:28px}
+  footer .marca .up{color:var(--roxo-claro)}
+  footer p{opacity:.72;font-size:15px;line-height:1.8}
+  footer a{color:var(--roxo-claro);text-decoration:none;font-weight:700}
 </style>
 </head>
 <body>
 
 <header>
   <div class="wrap nav">
-    <div class="marca"><img src="img/logo-up-branco.png" alt=""><span class="marca-txt">MOVE <span>UP</span></span></div>
+    <div class="marca">
+      <img src="img/logo-up-indigo.png" alt="">
+      <span class="marca-txt">MOVE <span class="up">UP</span></span>
+    </div>
     <nav class="nav-links">
       <a href="#sobre">O grupo</a>
       <a href="#quando">Encontros</a>
@@ -150,7 +168,7 @@
     <p>Um grupo pra crescer de verdade: fé, amizade e conversa sem enrolação sobre a vida
        que a gente vive de segunda a domingo.</p>
     <div class="acoes">
-      <a class="btn btn-lime" href="#quando">Quero participar</a>
+      <a class="btn btn-roxo" href="#quando">Quero participar</a>
       <a class="btn btn-vazio" href="#loja">Ver a loja</a>
     </div>
   </div>
@@ -206,7 +224,7 @@
   </div>
 </section>
 
-<section id="loja" class="loja">
+<section id="loja">
   <div class="wrap">
     <h2 class="titulo">Loja do <em>Move Up</em></h2>
     <p class="sub">Camiseta, boné e bolsa com o logo do Move Up. Escolheu e clicou, o pedido
@@ -218,7 +236,10 @@
 
 <footer>
   <div class="wrap">
-    <div class="marca" style="justify-content:center"><img src="img/logo-up-branco.png" alt="">MOVE <span style="color:var(--lime)">UP</span></div>
+    <div class="marca">
+      <img src="img/logo-up-branco.png" alt="">
+      MOVE <span class="up">UP</span>
+    </div>
     <p>
       Igreja Batista Betel<br>
       Pedidos da loja com <strong>Luis Albuquerque</strong> ·
