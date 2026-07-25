@@ -26,10 +26,9 @@
   header{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.94);
     backdrop-filter:blur(10px);border-bottom:1px solid #e7e4f2}
   .nav{display:flex;align-items:center;justify-content:space-between;height:78px}
-  .marca{display:flex;align-items:center;gap:13px;font-weight:800;font-size:25px;
-    letter-spacing:1px;color:var(--azul)}
-  .marca img{height:38px;width:auto;display:block}
-  .marca .up{color:var(--roxo)}
+  .marca{display:flex;align-items:center}
+  .marca img{height:34px;width:auto;display:block}
+  @media(max-width:560px){.marca img{height:26px}}
   .nav-links{display:flex;gap:30px;font-size:16px;font-weight:600}
   .nav-links a{text-decoration:none;color:var(--azul);opacity:.75}
   .nav-links a:hover{opacity:1;color:var(--roxo)}
@@ -55,6 +54,25 @@
   h1 em{font-style:normal;color:var(--roxo-claro)}
   .hero p{margin-top:26px;font-size:clamp(18px,2.3vw,25px);max-width:620px;opacity:.86;line-height:1.5}
   .acoes{margin-top:44px;display:flex;gap:14px;flex-wrap:wrap}
+  /* hero em duas colunas: texto + produto em destaque */
+  .hero-grid{display:grid;grid-template-columns:1.12fr .88fr;gap:60px;align-items:center}
+  @media(max-width:920px){.hero-grid{grid-template-columns:1fr;gap:48px}}
+  .destaque{background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.2);
+    border-radius:26px;padding:24px;backdrop-filter:blur(8px);
+    box-shadow:0 28px 64px rgba(6,1,40,.4)}
+  .destaque .selo{display:inline-block;background:var(--roxo);color:var(--branco);
+    font-size:12px;letter-spacing:3px;text-transform:uppercase;font-weight:800;
+    padding:9px 18px;border-radius:999px;margin-bottom:16px}
+  .destaque .foto{border-radius:18px;overflow:hidden;background:var(--cinza)}
+  .destaque .foto img{width:100%;display:block}
+  .destaque h3{font-size:25px;margin-top:20px;font-weight:800}
+  .destaque .desc-d{font-size:15px;opacity:.8;margin-top:6px;line-height:1.5}
+  .destaque .linha{display:flex;align-items:center;justify-content:space-between;
+    gap:16px;margin-top:20px}
+  .destaque .preco-d{font-size:30px;font-weight:800}
+  .destaque .btn-add{background:var(--branco);color:var(--azul);border:none;font-weight:800;
+    font-size:15px;padding:15px 24px;border-radius:999px;cursor:pointer;white-space:nowrap}
+  .destaque .btn-add:hover{background:var(--roxo);color:var(--branco)}
   .btn{display:inline-block;text-decoration:none;font-weight:700;font-size:17px;
     padding:18px 34px;border-radius:999px}
   .btn-roxo{background:var(--roxo);color:var(--branco)}
@@ -147,10 +165,7 @@
 
 <header>
   <div class="wrap nav">
-    <div class="marca">
-      <img src="img/logo-up-indigo.png" alt="">
-      <span class="marca-txt">MOVE <span class="up">UP</span></span>
-    </div>
+    <div class="marca"><img src="img/moveup-indigo.png" alt="Move Up"></div>
     <nav class="nav-links">
       <a href="#sobre">O grupo</a>
       <a href="#quando">Encontros</a>
@@ -161,15 +176,18 @@
 </header>
 
 <div class="hero">
-  <div class="wrap">
-    <div class="tag">Igreja Batista Betel</div>
-    <h1>Move <em>Up</em><br>é lugar de<br>adolescente.</h1>
-    <p>Um grupo pra crescer de verdade: fé, amizade e conversa sem enrolação sobre a vida
-       que a gente vive de segunda a domingo.</p>
-    <div class="acoes">
-      <a class="btn btn-roxo" href="#quando">Quero participar</a>
-      <a class="btn btn-vazio" href="#loja">Ver a loja</a>
+  <div class="wrap hero-grid">
+    <div>
+      <div class="tag">Igreja Batista Betel</div>
+      <h1>Move <em>Up</em><br>é lugar de<br>adolescente.</h1>
+      <p>Um grupo pra crescer de verdade: fé, amizade e conversa sem enrolação sobre a vida
+         que a gente vive de segunda a domingo.</p>
+      <div class="acoes">
+        <a class="btn btn-roxo" href="#quando">Quero participar</a>
+        <a class="btn btn-vazio" href="#loja">Ver a loja</a>
+      </div>
     </div>
+    <aside class="destaque" id="destaque"></aside>
   </div>
 </div>
 
@@ -235,9 +253,8 @@
 
 <footer>
   <div class="wrap">
-    <div class="marca">
-      <img src="img/logo-up-branco.png" alt="">
-      MOVE <span class="up">UP</span>
+    <div class="marca" style="justify-content:center">
+      <img src="img/moveup-branco.png" alt="Move Up" style="height:44px">
     </div>
     <p>
       Igreja Batista Betel<br>
@@ -292,6 +309,20 @@
           <button class="add" onclick="adicionar('${p.id}')">Adicionar ao carrinho</button>
         </div>
       </article>`).join("");
+  }
+
+  // produto em destaque no hero (o primeiro da lista)
+  function montarDestaque(){
+    const p = PRODUTOS[0];
+    document.getElementById("destaque").innerHTML = `
+      <div class="selo">Novo na loja</div>
+      <div class="foto"><img src="${p.foto}" alt="${p.nome}"></div>
+      <h3>${p.nome}</h3>
+      <div class="desc-d">${p.desc}</div>
+      <div class="linha">
+        <div class="preco-d">${real(p.preco)}</div>
+        <button class="btn-add" onclick="adicionar('${p.id}')">Adicionar ao carrinho</button>
+      </div>`;
   }
 
   function salvar(){
@@ -358,6 +389,7 @@
   }
 
   montarProdutos();
+  montarDestaque();
   render();
 </script>
 
