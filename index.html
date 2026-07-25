@@ -4,7 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Move Up · Igreja Batista Betel</title>
-<meta name="description" content="Move Up — o grupo de adolescentes da Igreja Batista Betel.">
+<meta name="description" content="Move Up, o grupo de adolescentes da Igreja Batista Betel.">
+<link rel="icon" href="img/logo-up-branco.png">
 <style>
   /* ====== AJUSTE AQUI ======
      WHATSAPP: número no formato 55 + DDD + número, só dígitos.  */
@@ -26,6 +27,11 @@
   .marca{display:flex;align-items:center;gap:14px;font-weight:800;font-size:26px;letter-spacing:2px}
   .marca img{height:40px;width:auto;display:block}
   .marca span{color:var(--lime)}
+  /* no celular o nome sai pra nao brigar com o botao do carrinho */
+  @media(max-width:560px){
+    .marca-txt{display:none}
+    .btn-carrinho{padding:12px 18px;font-size:14px}
+  }
   .nav-links{display:flex;gap:28px;font-size:16px;opacity:.85}
   .nav-links a{text-decoration:none}
   .nav-links a:hover{color:var(--lime)}
@@ -127,7 +133,7 @@
 
 <header>
   <div class="wrap nav">
-    <div class="marca"><img src="img/logo-up-branco.png" alt="">MOVE <span>UP</span></div>
+    <div class="marca"><img src="img/logo-up-branco.png" alt=""><span class="marca-txt">MOVE <span>UP</span></span></div>
     <nav class="nav-links">
       <a href="#sobre">O grupo</a>
       <a href="#quando">Encontros</a>
